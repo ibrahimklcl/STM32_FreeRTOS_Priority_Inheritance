@@ -2,10 +2,10 @@
 
 Bu proje, Gömülü Sistemler ve RTOS mimarilerinde sıkça karşılaşılan **"Priority Inversion" (Öncelik Tersinmesi)** probleminin simülasyonunu ve **"Priority Inheritance" (Öncelik Mirası)** yöntemiyle çözümünü gösterir.
 
-## 🎯 Projenin Amacı
+## Projenin Amacı
 Sistemde düşük, orta ve yüksek öncelikli görevler varken; ortak kaynak (Shared Resource) kullanımında oluşabilecek kilitlenmeleri ve gecikmeleri (Latency) engellemek.
 
-## ⚙️ Senaryo ve Çalışma Mantığı
+## Senaryo ve Çalışma Mantığı
 Sistemde 3 farklı görev (Task) ve 1 adet Mutex bulunmaktadır:
 
 1.  **Low Priority Task:** Mutex'i (Ortak Kaynağı) alır (Acquire). İşini yaparken yavaştır.
@@ -18,7 +18,7 @@ Sistemde 3 farklı görev (Task) ve 1 adet Mutex bulunmaktadır:
 * Low Task işini hızla bitirip Mutex'i bırakır.
 * High Task beklemeden yoluna devam eder.
 
-## 🛠 Kullanılan Yapılar
+## Kullanılan Yapılar
 * **STM32 & FreeRTOS (CMSIS-V2)**
 * **Mutex:** `osMutexPrioInherit` özelliği aktif edilmiş Binary Mutex.
 * **Tasks:**
@@ -26,7 +26,7 @@ Sistemde 3 farklı görev (Task) ve 1 adet Mutex bulunmaktadır:
     * `midPrioTask`: İşlemciyi meşgul eden gürültü görevi.
     * `lowPrioTask`: Kaynağı uzun süre tutan görev.
 
-## 🔌 Pin Gözlem (Logic Analyzer / Osiloskop)
+## Pin Gözlem (Logic Analyzer / Osiloskop)
 Bu projenin doğruluğunu test etmek için aşağıdaki pinler lojik analizör ile izlenmelidir:
 * **SHARED_PIN:** Mutex'in kilitli olduğu süreyi gösterir.
 * **HIGH_TASK_PIN:** Yüksek öncelikli görevin aktivitesini gösterir.
